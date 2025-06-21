@@ -74,16 +74,6 @@
   # Enable Docker
   virtualisation.docker.enable = true;
 
-  # Zsh with Oh My Zsh
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "docker" "fzf" ];
-      theme = "robbyrussell";
-    };
-  };
-
   # Bash improvements (fallback for non-zsh users)
   programs.bash.promptInit = ''
     export PS1="[\u@\h:\w]\$ "
