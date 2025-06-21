@@ -45,4 +45,19 @@
 
   # Flatpak support
   services.flatpak.enable = true;
+
+  # IBus for Vietnamese input on Wayland
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      unikey
+    ];
+  };
+
+  environment.variables = {
+    GTK_IM_MODULE = "ibus";
+    QT_IM_MODULE = "ibus";
+    XMODIFIERS = "@im=ibus";
+  };
+
 }
