@@ -44,4 +44,38 @@
 
   # Enable sudo without password for wheel group (optional, for convenience)
   security.sudo.wheelNeedsPassword = false;
+
+    # ZSH + Oh-My-Zsh + Powerlevel10k
+  programs.zsh = {
+    enable = true;
+    ohMyZsh = {
+      enable = true;
+      theme = "powerlevel10k/powerlevel10k";
+      plugins = [
+        "git"
+        "zsh-autosuggestions"
+        "zsh-syntax-highlighting"
+        "fzf"
+      ];
+      # Optional: custom = path/to/custom/themes
+    };
+  };
+
+  users.defaultUserShell = pkgs.zsh;
+
+  environment.systemPackages = with pkgs; [
+    zsh
+    oh-my-zsh
+    fzf
+    bat
+    ripgrep
+    jq
+
+    # ZSH Plugins
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+
+    # Nerd font for powerlevel10k
+    (nerdfonts.override { fonts = [ "Meslo" ]; })
+  ];
 }
