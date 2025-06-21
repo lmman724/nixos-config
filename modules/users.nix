@@ -42,10 +42,10 @@
     };
   };
 
-  # Enable sudo without password for wheel group (optional, for convenience)
+  # Enable sudo without password for wheel group
   security.sudo.wheelNeedsPassword = false;
 
-    # ZSH + Oh-My-Zsh + Powerlevel10k
+  # ZSH + Oh-My-Zsh + Powerlevel10k
   programs.zsh = {
     enable = true;
     ohMyZsh = {
@@ -57,7 +57,6 @@
         "zsh-syntax-highlighting"
         "fzf"
       ];
-      # Optional: custom = path/to/custom/themes
     };
   };
 
@@ -76,6 +75,6 @@
     zsh-syntax-highlighting
 
     # Nerd font for powerlevel10k
-   pkgs.nerd-fonts.meslo-lg
-
+    nerd-fonts.meslo-lg
+  ];
 }
