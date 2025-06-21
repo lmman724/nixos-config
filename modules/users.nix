@@ -1,4 +1,3 @@
-# modules/users.nix
 { config, pkgs, ... }:
 
 {
@@ -21,10 +20,6 @@
     isNormalUser = true;
     description = "lmman";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    openssh.authorizedKeys.keys = [
-      # Add your SSH public key here
-      # "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAI..."
-    ];
     packages = with pkgs; [
       kdePackages.kate
       kdePackages.dolphin
@@ -42,7 +37,6 @@
     };
   };
 
-  # Enable sudo without password for wheel group
   security.sudo.wheelNeedsPassword = false;
 
   # ZSH + Oh-My-Zsh + Powerlevel10k
@@ -53,11 +47,20 @@
       theme = "powerlevel10k/powerlevel10k";
       plugins = [
         "git"
-        "zsh-autosuggestions"
-        "zsh-syntax-highlighting"
         "fzf"
       ];
     };
+
+    interactiveShellInit = ''
+      # Powerlevel10k theme
+      source ${pkgs.powerlevel10k}/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+      # zsh-autosuggestions
+      source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+      # zsh-syntax-highlighting
+      source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    '';
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -65,16 +68,13 @@
   environment.systemPackages = with pkgs; [
     zsh
     oh-my-zsh
+    powerlevel10k
+    zsh-autosuggestions
+    zsh-syntax-highlighting
     fzf
     bat
     ripgrep
     jq
-
-    # ZSH Plugins
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-
-    # Nerd font for powerlevel10k
     nerd-fonts.meslo-lg
   ];
 }
