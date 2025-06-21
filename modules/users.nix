@@ -52,9 +52,6 @@
     };
 
     interactiveShellInit = ''
-      # Powerlevel10k theme
-      source ${pkgs.powerlevel10k}/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
       # zsh-autosuggestions
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -68,13 +65,13 @@
   environment.systemPackages = with pkgs; [
     zsh
     oh-my-zsh
-    powerlevel10k
+    zsh-powerlevel10k  # Correct package name
     zsh-autosuggestions
     zsh-syntax-highlighting
     fzf
     bat
     ripgrep
     jq
-    nerd-fonts.meslo-lg
+    nerdfonts.override { fonts = [ "Meslo" ]; }  # Corrected nerd-fonts package
   ];
 }
