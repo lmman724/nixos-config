@@ -76,6 +76,6 @@
     zsh-syntax-highlighting
 
     # Nerd font for powerlevel10k
-    (nerdfonts.override { fonts = [ "Meslo" ]; })
-  ];
+   pkgs.nerd-fonts.meslo-lg
+
 }
