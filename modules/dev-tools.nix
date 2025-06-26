@@ -42,6 +42,9 @@
     lsof
     gnupg
 
+    ibus
+    ibus-engines.m17n
+
     # Browsers
     google-chrome
     firefox
