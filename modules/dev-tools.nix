@@ -13,7 +13,6 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       liberation_ttf
-      fira-code
       nerd-fonts.fira-code
     ];
     fontconfig = {
@@ -21,16 +20,16 @@
       defaultFonts = {
         serif = [ "Liberation Serif" "Noto Serif CJK SC" ];
         sansSerif = [ "Liberation Sans" "Noto Sans CJK SC" ];
-        monospace = [ "Fira Code" "Fira Code Nerd Font" ];
+        monospace = [ "FiraCode Nerd Font Mono" ];
         emoji = [ "Noto Color Emoji" ];
       };
     };
   };
 
+
   # Developer tools and GUI apps
   environment.systemPackages = with pkgs; [
     # Core utilities
-    vim
     wget
     curl
     git
@@ -46,6 +45,8 @@
     # Browsers
     google-chrome
     firefox
+
+
 
     # Development
     vscode
@@ -69,6 +70,7 @@
     fzf
     ripgrep
     jq
+    remmina
   ];
 
   # Enable Docker

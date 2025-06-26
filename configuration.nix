@@ -28,6 +28,14 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
 
+  nix.gc = {
+  automatic = true;
+  dates = "weekly";
+  options = "--delete-older-than 7d";
+  };
+
+  
   # Version pin
   system.stateVersion = "25.05";
+
 }

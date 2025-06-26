@@ -72,6 +72,5 @@
     bat
     ripgrep
     jq
-    nerdfonts.override { fonts = [ "Meslo" ]; }  # Corrected nerd-fonts package
   ];
 }
